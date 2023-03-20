@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Net.WebSockets;
 
 class DataBase
 {
@@ -45,14 +46,19 @@ class DataBase
     }
 
 
-    public  string Report()
+    public  void Report()
     {
-        string output = String.Empty;
+        //string output = String.Empty;
+        var output = from w in worker_table
+                     join d in dep_table on w.depId equals d.id
+                     orderby w.depId
+                     select new { id = w.id, fio = w.fullName, dep = d.title};
 
-        foreach (var item in worker_table)
-        {
-            output += $"{item.fullName} {item.age} {dep_table[item.id].title}\n";
-        }
-        return output;
+        foreach (var item in output)
+            
+            {
+            //output += $"{item.fullName} {item.age} {item.id}\n";
+            Console.WriteLine(item);
+            }
     }
 }

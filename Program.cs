@@ -40,7 +40,8 @@ partial class Program
         Console.WriteLine();
         Console.WriteLine(db.select_all_worker());
         Console.WriteLine();
-        Console.WriteLine(db.Report());
+        //Console.WriteLine(db.Report());
+        db.Report();
         Console.WriteLine();
         Console.ReadKey();
     }
