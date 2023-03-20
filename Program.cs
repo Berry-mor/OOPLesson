@@ -1,10 +1,4 @@
-﻿
-
-using System;
-using System.Collections.Generic;
-using System.Threading.Channels;
-
-partial class Program
+﻿partial class Program
 {
     private static void Main(string[] args)
     {

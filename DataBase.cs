@@ -52,13 +52,16 @@ class DataBase
         var output = from w in worker_table
                      join d in dep_table on w.depId equals d.id
                      orderby w.depId
-                     select new { id = w.id, fio = w.fullName, dep = d.title};
+                     select new { id = w.id, fio = w.fullName, dep = d.title, zar = w.salary};
 
+        int n = 0;
         foreach (var item in output)
             
             {
+            n += item.zar;
             //output += $"{item.fullName} {item.age} {item.id}\n";
             Console.WriteLine(item);
-            }
+        }
+        Console.WriteLine($"Сумма зарnлат: -- {n}");
     }
 }
